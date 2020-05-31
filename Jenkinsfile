@@ -1,6 +1,11 @@
 pipeline {
     agent any 
     stages{
+        stage('Pull Latest Image'){
+            steps{
+                bat "docker pull ravisharma2780/selenium-docker1"
+            }
+        }
         stage('Start Grid'){
             steps{
                 bat "docker-compose up -d hub chrome firefox"
@@ -14,7 +19,7 @@ pipeline {
     }
     post{
         always {
-            archiveArtifacts artifacts: "output/**."
+            archiveArtifacts artifacts: "/c/Users/ravi.sharma/IntelliJProjects/output/**."
             bat "docker-compose down"
         }
     }
