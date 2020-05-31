@@ -19,7 +19,7 @@ pipeline {
     }
     post{
         always {
-            archiveArtifacts artifacts: "/output/**."
+            archiveArtifacts artifacts: "c/Users/ravi.sharma/IntelliJProjects/output/**."
             bat "docker-compose down"
         }
     }
